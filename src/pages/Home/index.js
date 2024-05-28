@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import {
   Box,
   Button,
+  Divider,
   Heading,
   IconButton,
   List,
@@ -90,14 +91,18 @@ export default function Home() {
 
         <Box width={'100%'}>
           {addresses.length > 0 ? (
-            <Heading
-              as='h3'
-              fontSize={'22px'}
-              marginTop={'48px'}
-              marginBottom={'16px'}
-            >
-              Endereços
-            </Heading>
+            <>
+              <Heading
+                as='h3'
+                fontSize={'22px'}
+                marginTop={'48px'}
+                marginBottom={'16px'}
+              >
+                Endereços
+              </Heading>
+
+              <Divider />
+            </>
           ) : (
             <Box
               marginTop={'32px'}
@@ -121,7 +126,7 @@ export default function Home() {
             </Box>
           )}
 
-          <List spacing={3}>
+          <List spacing={3} marginTop={'12px'}>
             {addresses.map((address) => (
               <ListItem key={address.id}>
                 <Box
