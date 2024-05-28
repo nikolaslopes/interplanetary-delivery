@@ -65,9 +65,11 @@ export default function PageLayout({ title, backPageLink, children }) {
             </Box>
           )}
 
-          <Box>
-            <Spacer />
-          </Box>
+          {!backPageLink && (
+            <Box>
+              <Spacer />
+            </Box>
+          )}
 
           <Box>
             <Heading
