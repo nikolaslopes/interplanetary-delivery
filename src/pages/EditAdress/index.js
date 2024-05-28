@@ -10,29 +10,37 @@ import {
   Heading,
 } from '@chakra-ui/react';
 
-import { api } from '../../services/api';
-
 import PageLayout from '../../components/PageLayout';
 
 export default function EditAdress() {
   const { id } = useParams();
   const [lot, setLot] = useState('');
   const [name, setName] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get(`/address/${id}`).then((response) => {
-      setLot(response.data.lot);
-      setName(response.data.name);
-    });
+    const storedAddresses = JSON.parse(localStorage.getItem('addresses')) || [];
+    const address = storedAddresses.find((address) => address.id === id);
+
+    if (address) {
+      setLot(address.lot);
+      setName(address.name);
+    }
   }, [id]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    api.put(`address/${id}`, { lot, name }).then(() => {
-      navigate('/');
-    });
-  };
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const storedAddresses = JSON.parse(localStorage.getItem('addresses')) || [];
+    const updatedAddresses = storedAddresses.map((address) =>
+      address.id === id ? { ...address, lot, name } : address,
+    );
+
+    localStorage.setItem('addresses', JSON.stringify(updatedAddresses));
+
+    navigate('/');
+  }
 
   return (
     <PageLayout title='Editar endereço' backPageLink>

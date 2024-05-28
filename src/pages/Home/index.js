@@ -14,21 +14,24 @@ import astronautAnimation from '../../assets/animations/astronaut.json';
 import { Link } from 'react-router-dom';
 import PageLayout from '../../components/PageLayout';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
-import { api } from '../../services/api';
 
 export default function Home() {
   const [addresses, setAddresses] = useState([]);
 
   useEffect(() => {
-    api.get('/address').then((response) => {
-      setAddresses(response.data);
-    });
+    const storedAddress = JSON.parse(localStorage.getItem('addresses')) || [];
+
+    setAddresses(storedAddress);
   }, []);
 
+  function saveAddressesToLocalStorage(updatedAddresses) {
+    localStorage.setItem('addresses', JSON.stringify(updatedAddresses));
+  }
+
   function handleDeleteAddress(id) {
-    api.delete(`/address/${id}`).then(() => {
-      setAddresses(addresses.filter((address) => address.id !== id));
-    });
+    const updatedAddresses = addresses.filter((address) => address.id !== id);
+    setAddresses(updatedAddresses);
+    saveAddressesToLocalStorage(updatedAddresses);
   }
 
   return (
