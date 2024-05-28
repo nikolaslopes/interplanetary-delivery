@@ -37,7 +37,7 @@ export default function PageLayout({ title, backPageLink, children }) {
         <Heading
           as={'h1'}
           color={'purple.50'}
-          fontSize={{ base: '22px', sm: '20px', md: '32px', lg: '42px' }}
+          fontSize={{ base: '22px', sm: '20px', md: '32px' }}
         >
           {title}
         </Heading>
