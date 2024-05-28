@@ -38,7 +38,7 @@ export default function Home() {
         style={{
           height: '300px',
         }}
-        aria-aria-labelledby='Astronaut Animation'
+        aria-label='Astronaut Animation'
       />
       <Box>
         <Link to='/register'>
