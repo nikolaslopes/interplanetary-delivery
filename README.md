@@ -10,7 +10,7 @@ Steps to run:
 
 - Download the `zip project` or execute in the terminal: `git clone https://github.com/nikolaslopes/interplanetary-delivery.git`
 
-- Open the folder in the terminal: `cd interplanetary-delivery`
+- Open the folder in the terminal: `cd interplanetary-delivery-main`
 
 - Open the terminal and run: `npm install`
 
