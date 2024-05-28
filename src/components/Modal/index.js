@@ -23,7 +23,8 @@ export default function Modal({
     <ModalChakra isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay bg='rgba(0, 0, 0, 0.5)' backdropFilter='blur(8px)' />
       <ModalContent background={'gray.600'} maxWidth={['90%', '70%', '500px']}>
-        {title ? <ModalHeader>{title}</ModalHeader> : null}
+        {title ? <ModalHeader marginRight={'8px'}>{title}</ModalHeader> : null}
+
         <ModalCloseButton />
 
         <ModalBody>{subTitle ? <Text>{subTitle}</Text> : null}</ModalBody>
