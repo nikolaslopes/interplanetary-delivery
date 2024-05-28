@@ -19,7 +19,6 @@ import astronautAnimation from '../../assets/animations/astronaut.json';
 export default function Home() {
   const [addresses, setAddresses] = useState([]);
   const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
-  const [infoModalIsOpen, setInfoModalIsOpen] = useState(false);
   const [selectedAddressId, setSelectedAddressId] = useState(null);
 
   useEffect(() => {
@@ -30,10 +29,6 @@ export default function Home() {
 
   function toggleDeleteModal() {
     setDeleteModalIsOpen((prevState) => !prevState);
-  }
-
-  function toggleInfoModal() {
-    setInfoModalIsOpen((prevState) => !prevState);
   }
 
   function saveAddressesToLocalStorage(updatedAddresses) {
@@ -76,19 +71,6 @@ export default function Home() {
         }
       />
 
-      <Modal
-        isOpen={infoModalIsOpen}
-        onClose={toggleInfoModal}
-        title={'Olá! Tudo bem?'}
-        subTitle={
-          'Esta aplicação utiliza o Local Storage do seu navegador para armazenar os endereços cadastrados.'
-        }
-        primaryButton={
-          <Button marginRight={3} onClick={toggleInfoModal}>
-            Ok. Entendi!
-          </Button>
-        }
-      />
       <PageLayout title={'Delivery Interplanetário'} backPageLink={false}>
         <Lottie
           animationData={astronautAnimation}
