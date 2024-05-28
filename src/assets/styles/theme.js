@@ -24,6 +24,24 @@ const Input = {
   },
 };
 
+const Select = {
+  variants: {
+    custom: {
+      field: {
+        background: 'transparent',
+        color: 'gray.100',
+        border: '2px solid',
+        _focus: {
+          borderColor: 'purple.400',
+        },
+      },
+    },
+  },
+  defaultProps: {
+    variant: 'custom',
+  },
+};
+
 const theme = extendTheme({
   fonts: {
     heading: `'Sora', sans-serif`,
@@ -32,6 +50,7 @@ const theme = extendTheme({
   components: {
     Button,
     Input,
+    Select,
   },
   styles: {
     global: {

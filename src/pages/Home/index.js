@@ -149,8 +149,26 @@ export default function Home() {
                   paddingY={'8px'}
                 >
                   <Box marginRight={'8px'}>
-                    <strong>Nome:</strong> {address.name} <br />
-                    <strong>Lote:</strong> {address.lot}
+                    {address.lot && (
+                      <>
+                        <strong>Lote: </strong> {address.lot}
+                      </>
+                    )}
+
+                    <br />
+
+                    {address.name && (
+                      <>
+                        <strong>Nome: </strong> {address.name}
+                        <br />
+                      </>
+                    )}
+
+                    {address.planet && (
+                      <>
+                        <strong>Planeta: </strong> {address.planet}
+                      </>
+                    )}
                   </Box>
 
                   <Box display={'flex'}>
